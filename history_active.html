@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>IOT Project</title>
+
+    <!-- Iconos -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!--     <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div></div>
+            <div class="header-right">
+                <span class="material-icons-outlined">notifications</span>
+            </div>
+        </header>
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined"></span> My Project
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="index.html">
+                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank">
+                        <span class="material-icons-outlined">account_circle</span> Profile
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="data.html" target="_blank">
+                        <span class="material-icons-outlined">description</span> History Data
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="history_active.html" target="_blank">
+                        <span class="material-icons-outlined">toggle_on</span> History Active
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank">
+                        <span class="material-icons-outlined">groups</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="main-container">
+            <div class="main-title">
+                <h2>NoneSQl</h2>
+            </div>
+            <div class="main-cards">
+                <div class="card">
+                    <div class="column temperature text-black" id="temperatureColumn">
+                        <h2>Nhiệt độ: <span class="material-icons-outlined">groups</span></h2>
+                        <h1 class="text-black" id="temperatureValue"> °C</h1>
+                    </div>
+                    <div class="column humidity text-black" id="humidityColumn">
+                        <h2>Độ ẩm: <span class="material-icons-outlined">groups</span></h2>
+                        <h1 class="text-black" id="humidityValue"> %</h1>
+                    </div>
+                    <div class="column light text-black" id="lightColumn">
+                        <h2>Ánh sáng: <span class="material-icons-outlined">groups</span></h2>
+                        <h1 class="text-black" id="lightValue"> lux</h1>
+                    </div>
+                </div>
+                <!-- 
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>ALERTAS</h3>
+                        <span class="material-icons-outlined">notifications</span>
+                    </div>
+                    <h1>50</h1>
+                </div> -->
+
+            </div>
+
+            <div class="charts">
+
+                <div class="charts-card">
+                    <h2 class="chart-title">Los 5 mejores productos</h2>
+                    <div id="bar-chart"></div>
+                </div>
+
+                <div class="charts-card">
+                    <h2 class="chart-title">Órdenes de Compra y Venta</h2>
+                    <div id="area-chart"></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

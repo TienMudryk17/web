@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data</title>
+    <style>
+        /* Thêm luật CSS tùy chỉnh của bạn tại đây */
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid black;
+        }
+        
+        th {
+            background-color: #a39898;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Data</h1>
+    <p>Dữ liệu nhiệt độ, độ ẩm, ánh sáng theo thời gian</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Thời gian</th>
+                <th>Nhiệt độ (&deg;C)</th>
+                <th>Độ ẩm (%)</th>
+                <th>Ánh sáng (Lux)</th>
+            </tr>
+        </thead>
+        <tbody id="data-body">
+            <!-- Dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        function generateRandomData() {
+            var time = new Date().toLocaleTimeString();
+            var temperature = Math.floor(Math.random() * (50 + 10 + 1)) - 10;
+            var humidity = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+            var light = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+
+            return {
+                time: time,
+                temperature: temperature,
+                humidity: humidity,
+                light: light
+            };
+        }
+
+        function updateTable() {
+            var data = generateRandomData();
+            var tableRow = document.createElement("tr");
+
+            var timeCell = document.createElement("td");
+            timeCell.textContent = data.time;
+            tableRow.appendChild(timeCell);
+
+            var temperatureCell = document.createElement("td");
+            temperatureCell.textContent = data.temperature;
+            tableRow.appendChild(temperatureCell);
+
+            var humidityCell = document.createElement("td");
+            humidityCell.textContent = data.humidity;
+            tableRow.appendChild(humidityCell);
+
+            var lightCell = document.createElement("td");
+            lightCell.textContent = data.light;
+            tableRow.appendChild(lightCell);
+
+            document.getElementById("data-body").appendChild(tableRow);
+        }
+
+        setInterval(updateTable, 1000); // Cập nhật bảng mỗi 5 giây
+    </script>
+</body>
+
+</html>

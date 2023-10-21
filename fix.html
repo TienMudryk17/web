@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <style>
+        /* CSS */
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        .device {
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .on {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .off {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Control Panel</h1>
+    <div class="device">
+        <h2>Đèn</h2>
+        <span class="material-symbols-outlined">lightbulb</span>
+        <button id="lightBtn" class="on">
+            Đèn
+        </button>
+    </div>
+    <div class="device">
+        <h2>Quạt</h2>
+        <button id="fanBtn" class="off">Tắt</button>
+    </div>
+    <script>
+        // JavaScript
+        const lightBtn = document.getElementById("lightBtn");
+        const fanBtn = document.getElementById("fanBtn");
+        const lightBulb = document.querySelector(".device h2:first-child");
+        const fan = document.querySelector(".device h2:last-child");
+
+        lightBtn.addEventListener("click", () => {
+            if (lightBtn.classList.contains("on")) {
+                lightBtn.classList.remove("on");
+                lightBtn.classList.add("off");
+                lightBtn.textContent = "Tắt";
+                lightBulb.style.color = "gray"; // Màu tắt
+            } else {
+                lightBtn.classList.remove("off");
+                lightBtn.classList.add("on");
+                lightBtn.textContent = "Bật";
+                lightBulb.style.color = "yellow"; // Màu bật
+            }
+        });
+
+        fanBtn.addEventListener("click", () => {
+            if (fanBtn.classList.contains("on")) {
+                fanBtn.classList.remove("on");
+                fanBtn.classList.add("off");
+                fanBtn.textContent = "Tắt";
+                fan.style.animation = "none"; // Dừng animation (quạt đứng yên)
+            } else {
+                fanBtn.classList.remove("off");
+                fanBtn.classList.add("on");
+                fanBtn.textContent = "Bật";
+                fan.style.animation = "spin 2s linear infinite"; // Khởi động animation (quạt quay)
+            }
+        });
+    </script>
+</body>
+
+</html>

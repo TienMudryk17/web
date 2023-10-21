@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>IOT Project</title>
+    <!-- Các phần còn lại của khai báo head -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <nav class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </nav>
+            <nav class="header-right">
+                <div class="navbar">
+                    <ul class="navbar-nav">
+                        <li class="navbar-item">
+                            <a class="navbar-link nav-profile">
+                                <div class="navbar-profile-image">
+                                    <img src="images/face1.jpg" alt="image">
+                                    <span class="navbar-profile-text">Mr.Tien</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside id="sidebar">
+            <!-- Các phần còn lại của sidebar -->
+        </aside>
+        <main class="main-container">
+            <div class="main-title">
+                <h2 class="text-in-main">Dashboard</h2>
+            </div>
+            <div class="main-cards">
+                <!-- Các phần còn lại của main cards -->
+            </div>
+            <div class="charts">
+                <div class="charts-card">
+                    <h2 class="chart-title">Đồ thị (nhiệt độ, độ ẩm, ánh sáng)</h2>
+                    <canvas id="sensorChart" width="550" height="350"></canvas>
+                </div>
+                <div class="charts-card">
+                    <h2 class="chart-title">Órdenes de Compra y Venta</h2>
+                    <div id="area-chart"></div>
+                </div>
+            </div>
+        </main>
+        <!-- Thêm một phần container cho nội dung của History Active -->
+        <div id="history-active-content" style="display: none;">
+            <!-- Đặt nội dung bạn muốn hiển thị ở đây -->
+            <table>
+                <tr>
+                    <th>Cột 1</th>
+                    <th>Cột 2</th>
+                    <th>Cột 3</th>
+                </tr>
+                <tr>
+                    <td>Dữ liệu 1</td>
+                    <td>Dữ liệu 2</td>
+                    <td>Dữ liệu 3</td>
+                </tr>
+                <!-- Thêm các hàng dữ liệu khác tương tự -->
+            </table>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script src="script.js"></script>
+    <!-- JavaScript để điều khiển nội dung cho History Active -->
+    <script>
+        function showHistoryActive() {
+            document.getElementById("history-active-content").style.display = "block";
+            // Ẩn nội dung Dashboard nếu cần
+            // document.querySelector(".main-title").style.display = "none";
+            // document.querySelector(".main-cards").style.display = "none";
+            // document.querySelector(".charts").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
