@@ -42,38 +42,38 @@
                 <div class="sidebar-brand">
                     <span class="material-icons-outlined"></span> My Project
                 </div>
-                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                <span class="material-icons-outlined " onclick="closeSidebar()">close</span>
             </div>
 
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="index.html">
+                    <a data-toggle="list" href="#item-dashboard">
                         <span class="material-icons-outlined">dashboard</span> Dashboard
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="#" target="_blank">
+                    <a target="_blank" data-toggle="list" href="#item-profile">
                         <span class="material-icons-outlined">account_circle</span> Profile
                     </a>
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" data-toggle="list" href="#item-historydata">
                     <a href="data.html" target="_blank">
                         <span class="material-icons-outlined">description</span> History Data
                     </a>
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" data-toggle="list" href="#item-historyactive">
                     <a href="history_active.html">
                         <span class="material-icons-outlined">toggle_on</span> History Active
                     </a>
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" data-toggle="list" href="">
                     <a href="#" target="_blank">
                         <span class="material-icons-outlined">groups</span>
                     </a>
                 </li>
             </ul>
         </aside>
-        <main class="main-container">
+        <main class="main-container" id="item-dashboard">
             <div class="main-title">
                 <h2 class="text-in-main">Dashboard</h2>
             </div>
@@ -92,15 +92,6 @@
                         <h1 class="text-black" id="lightValue"> lux</h1>
                     </div>
                 </div>
-                <!-- 
-                <div class="card">
-                    <div class="card-inner">
-                        <h3>ALERTAS</h3>
-                        <span class="material-icons-outlined">notifications</span>
-                    </div>
-                    <h1>50</h1>
-                </div> -->
-
             </div>
 
             <div class="charts">
@@ -117,6 +108,11 @@
 
             </div>
         </main>
+        <div class="profile-menu" id="item-profile">
+            <div>
+
+            </div>
+        </div>
     </div>
     <div class="bottom">
         <canvas id="sensorChart" width="550" height="350"></canvas>
@@ -126,7 +122,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
     <script src="script.js"></script>
     <!-- <script src="main.js"></script> -->
-
 </body>
 
 </html>

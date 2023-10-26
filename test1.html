@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IOT Project</title>
-    <!-- Các phần còn lại của khai báo head -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -30,29 +32,75 @@
             </nav>
         </header>
         <aside id="sidebar">
-            <!-- Các phần còn lại của sidebar -->
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">dashboard</span> My Project
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="index.html">
+                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank">
+                        <span class="material-icons-outlined">account_circle</span> Profile
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="data.html">
+                        <span class="material-icons-outlined">description</span> History Data
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="history_active.html">
+                        <span class="material-icons-outlined">toggle_on</span> History Active
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank" onclick="showTiePieContent()">
+                        <span class="material-icons-outlined">groups</span> TiePie
+                    </a>
+                </li>
+            </ul>
         </aside>
         <main class="main-container">
             <div class="main-title">
                 <h2 class="text-in-main">Dashboard</h2>
             </div>
             <div class="main-cards">
-                <!-- Các phần còn lại của main cards -->
+                <div class="card">
+                    <div class="column temperature">
+                        <h2>Nhiệt độ <span class="material-icons-outlined">thermostat</span></h2>
+                        <h1 id="temperatureValue">°C</h1>
+                    </div>
+                    <div class="column humidity">
+                        <h2>Độ ẩm <span class="material-icons-outlined">cloud</span></h2>
+                        <h1 id="humidityValue">%</h1>
+                    </div>
+                    <div class="column light">
+                        <h2>Ánh sáng <span class="material-icons-outlined">light_mode</span></h2>
+                        <h1 id="lightValue">lux</h1>
+                    </div>
+                </div>
             </div>
+
             <div class="charts">
                 <div class="charts-card">
                     <h2 class="chart-title">Đồ thị (nhiệt độ, độ ẩm, ánh sáng)</h2>
                     <canvas id="sensorChart" width="550" height="350"></canvas>
                 </div>
+
                 <div class="charts-card">
                     <h2 class="chart-title">Órdenes de Compra y Venta</h2>
                     <div id="area-chart"></div>
                 </div>
             </div>
         </main>
-        <!-- Thêm một phần container cho nội dung của History Active -->
         <div id="history-active-content" style="display: none;">
-            <!-- Đặt nội dung bạn muốn hiển thị ở đây -->
             <table>
                 <tr>
                     <th>Cột 1</th>
@@ -64,21 +112,38 @@
                     <td>Dữ liệu 2</td>
                     <td>Dữ liệu 3</td>
                 </tr>
-                <!-- Thêm các hàng dữ liệu khác tương tự -->
             </table>
         </div>
     </div>
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.28.0/dist/apexcharts.min.js"></script>
     <script src="script.js"></script>
-    <!-- JavaScript để điều khiển nội dung cho History Active -->
     <script>
-        function showHistoryActive() {
-            document.getElementById("history-active-content").style.display = "block";
-            // Ẩn nội dung Dashboard nếu cần
-            // document.querySelector(".main-title").style.display = "none";
-            // document.querySelector(".main-cards").style.display = "none";
-            // document.querySelector(".charts").style.display = "none";
+        function showTiePieContent() {
+            // Ẩn nội dung của Dashboard
+            document.querySelector(".main-title").style.display = "none";
+            document.querySelector(".main-cards").style.display = "none";
+            document.querySelector(".charts").style.display = "none";
+
+            // Hiển thị nội dung của TiePie
+            var tiePieContent = document.getElementById("tiepie-content");
+            tiePieContent.style.display = "block";
+            tiePieContent.innerHTML = `
+                <h3>TiePie</h3>
+                <table>
+                    <tr>
+                        <th>Cột 1</th>
+                        <th>Cột 2</th>
+                        <th>Cột 3</th>
+                    </tr>
+                    <tr>
+                        <td>Dữ liệu 1</td>
+                        <td>Dữ liệu 2</td>
+                        <td>Dữ liệu 3</td>
+                    </tr>
+                    <!-- Thêm các hàng dữ liệu khác tương tự -->
+                </table>
+            `;
         }
     </script>
 </body>
